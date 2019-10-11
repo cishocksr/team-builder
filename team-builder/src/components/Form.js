@@ -6,8 +6,8 @@ const Form = props => {
         <div className='member-list'>
             {props.membersList.map(members => {
                 return(
-                    <div className='member'>
-                        <h2>{members.name}</h2>
+                    <div className='member' key={members.id}>
+                        <h3>{members.name}</h3>
                         <p>{members.email}</p>
                         <p>{members.role}</p>
                     </div>

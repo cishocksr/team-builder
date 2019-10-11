@@ -8,6 +8,7 @@ function App() {
   
   const [teamMember, setTeamMember] = useState([
     {
+    id: 1,
     name: 'Chris Shockley',
     email: 'cishockleysr@gmail.com',
     role: 'Software Engineer'
@@ -16,6 +17,7 @@ function App() {
 
   const addNewMember = member => {
     const newMember = {
+      id: Date.now(),
       name: member.name,
       email: member.email,
       role: member.role
@@ -28,7 +30,7 @@ function App() {
   return (
     <div className='App'>
       <h1>Team Builders</h1>
-      <TeamPage addNote={addNewMember}/>
+      <TeamPage addMember={addNewMember}/>
       <Form membersList={teamMember}/>
       
     </div>
