@@ -1,10 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import ReactDOM from 'react-dom';
+import Form from './components/Form';
+import TeamPage from './components/TeamPage'
 import './App.css';
 
 function App() {
   
-  const [team, setTeam] = useState([
+  const [teamMember, setTeamMember] = useState([
     {
     name: 'Chris Shockley',
     email: 'cishockleysr@gmail.com',
@@ -12,8 +14,24 @@ function App() {
     }
   ]);
 
+  const addNewMember = member => {
+    const newMember = {
+      name: member.name,
+      email: member.email,
+      role: member.role
+    };
+
+    
+    setTeamMember([...teamMember, newMember]);
+  }
 
   return (
+    <div className='App'>
+      <h1>Team Builders</h1>
+      <TeamPage addNote={addNewMember}/>
+      <Form membersList={teamMember}/>
+      
+    </div>
     
   );
 }
